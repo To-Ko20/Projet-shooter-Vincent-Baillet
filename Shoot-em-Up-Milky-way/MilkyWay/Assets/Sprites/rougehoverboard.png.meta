@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rougehoverboard_0: 48832876088063134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
