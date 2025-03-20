@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5839eaf8a3f82ef48a816ec7b597c16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 7
   rb: {fileID: 1033488959}
   bullet: {fileID: 4671108321833451556, guid: 18374a290bf27864da1651c0b4321f6f, type: 3}
 --- !u!50 &1033488959
