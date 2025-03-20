@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bleuhoverboard_0: -8780069865635855600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
