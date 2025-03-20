@@ -62,51 +62,54 @@ public class ZipBehaviors : MonoBehaviour
     {
         GameObject newBullet;
         EnnemiBulletController bulletScript;
-
-        switch (zipID)
+        
+        if (!PauseManager.isPaused)
         {
-            case 0:
-                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
-                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+            switch (zipID)
+            { 
+                case 0:
+                    newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                    bulletScript = newBullet.GetComponent<EnnemiBulletController>();
 
-                if (bulletScript != null)
-                {
-                    bulletScript.Init(zipID, Vector3.zero); // pas besoin de target ici
-                }
-                break;
-
-            case 1:
-                // Multi-shoot : centre, droite, gauche
-                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
-                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
-                if (bulletScript != null) bulletScript.Init(zipID, Vector3.zero);
-
-                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
-                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
-                if (bulletScript != null) bulletScript.Init(0, Vector3.zero);
-
-                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
-                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
-                if (bulletScript != null) bulletScript.Init(3, Vector3.zero);
-                break;
-
-            case 2:
-                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
-                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
-
-                if (bulletScript != null)
-                {
-                    GameObject player = GameObject.FindGameObjectWithTag("Player");
-                    if (player != null)
+                    if (bulletScript != null)
                     {
-                        bulletScript.Init(2, player.transform.position);
+                        bulletScript.Init(zipID, Vector3.zero); // pas besoin de target ici
                     }
-                    else
+                    break;
+
+                case 1:
+                    // Multi-shoot : centre, droite, gauche
+                    newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                    bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+                    if (bulletScript != null) bulletScript.Init(zipID, Vector3.zero);
+
+                    newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                    bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+                    if (bulletScript != null) bulletScript.Init(0, Vector3.zero);
+
+                    newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                    bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+                    if (bulletScript != null) bulletScript.Init(3, Vector3.zero);
+                    break;
+
+                case 2:
+                    newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                    bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+
+                    if (bulletScript != null)
                     {
-                        Debug.LogWarning("Player not found for targeted bullet.");
+                        GameObject player = GameObject.FindGameObjectWithTag("Player");
+                        if (player != null)
+                        {
+                            bulletScript.Init(2, player.transform.position);
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Player not found for targeted bullet.");
+                        }
                     }
-                }
-                break;
+                    break;
+            }        
         }
     }
 
