@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 7a19b36c73be449488b6c0755ed42e29
+guid: 693ceef637856b24194e750314f2de04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2801007813500493365
-    second: ezgif-frame-009_0
+      213: 7727722586471641159
+    second: kakabur_vert_0
+  - first:
+      213: -8109532558003243004
+    second: kakabur_vert_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ezgif-frame-009_0
+      name: kakabur_vert_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 262
-        height: 324
+        x: 161
+        y: 142
+        width: 1128
+        height: 994
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc1a537eb32d029d0800000000000000
-      internalID: -2801007813500493365
+      spriteID: 740b769cfb26e3b60800000000000000
+      internalID: 7727722586471641159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kakabur_vert_1
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 123
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40870c9ca17257f80800000000000000
+      internalID: -8109532558003243004
       vertices: []
       indices: 
       edges: []
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ezgif-frame-009_0: -2801007813500493365
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
