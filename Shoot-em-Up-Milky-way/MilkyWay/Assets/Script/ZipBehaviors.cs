@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZipBehaviors : MonoBehaviour
+
 {
     [SerializeField] private float speed;
     [SerializeField] private int life;
@@ -58,7 +59,10 @@ public class ZipBehaviors : MonoBehaviour
     
     private void Shoot()
     {
-        GameObject newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+        if (!PauseManager.isPaused)
+        {
+            GameObject newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+        }
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
