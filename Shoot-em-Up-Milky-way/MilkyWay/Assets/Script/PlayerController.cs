@@ -13,19 +13,32 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bullet;
 
-    // Système de vie
-    public GameObject lifeIconPrefab; // Ton prefab de sprite (coeur, etc.)
-    public Transform lifePanel; // L'objet parent qui contient les icônes (par ex. un empty GameObject dans la scène)
+    // UI de vie
+    public GameObject lifeIconPrefab;
+    public Transform lifePanel;
     private List<GameObject> lifeIcons = new List<GameObject>();
+
+    // Game Over
+    public GameObject gameOverScreen; // Assigne ça dans l'inspecteur !
+
+    private bool isGameOver = false;
 
     void Start()
     {
+        gameOverScreen.SetActive(false);
         maxLife = playerLife;
         UpdateLifeDisplay();
+
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(false);
+        }
     }
 
     void Update()
     {
+        if (isGameOver) return;
+
         _movement = Vector2.zero;
 
         if (Input.GetKey(KeyCode.W) && rb.transform.position.y <= 4.5)
@@ -90,13 +103,28 @@ public class PlayerController : MonoBehaviour
 
     void LoseGame()
     {
+        DisableEnemies();
         Debug.Log("Game Over");
-        // Ici tu peux rajouter une UI de game over, etc.
+        isGameOver = true;
+
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
+    }
+    
+    void RestartGame()
+    {
+        // Exemple simple : reload la scène
+        Time.timeScale = 1f; // Remet le temps à la normale
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        EnableEnemies();
     }
 
     private void UpdateLifeDisplay()
     {
-        // On supprime toutes les icônes de la liste (réinitialisation)
         foreach (var icon in lifeIcons)
         {
             Destroy(icon);
@@ -104,11 +132,30 @@ public class PlayerController : MonoBehaviour
 
         lifeIcons.Clear();
 
-        // On instancie autant d'icônes que la vie actuelle
         for (int i = 0; i < playerLife; i++)
         {
             GameObject icon = Instantiate(lifeIconPrefab, lifePanel);
             lifeIcons.Add(icon);
+        }
+    }
+    
+    void DisableEnemies()
+    {
+        ZipBehaviors[] enemyScripts = FindObjectsOfType<ZipBehaviors>();
+
+        foreach (ZipBehaviors enemy in enemyScripts)
+        {
+            enemy.enabled = false;
+        }
+    }
+    
+    void EnableEnemies()
+    {
+        ZipBehaviors[] enemyScripts = FindObjectsOfType<ZipBehaviors>();
+
+        foreach (ZipBehaviors enemy in enemyScripts)
+        {
+            enemy.enabled = true;
         }
     }
 }
