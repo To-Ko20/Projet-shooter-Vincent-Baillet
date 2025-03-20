@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      verthoverboard_0: 1258985618931317549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
