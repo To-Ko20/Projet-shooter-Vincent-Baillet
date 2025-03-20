@@ -102,11 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5aaa3eba675ef44b53e8eb312c35c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.5
   life: 3
   rb: {fileID: 3145608680436358952}
   bullet: {fileID: 4671108321833451556, guid: dd50675fc20ff884981d172357110633, type: 3}
-  shootTime: 6
+  shootTime: 12
+  zipID: 0
 --- !u!50 &3145608680436358952
 Rigidbody2D:
   serializedVersion: 5

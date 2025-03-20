@@ -818,6 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zipType:
   - {fileID: 8823149072992613981, guid: c285a41872b04b34892a1286cd86460e, type: 3}
+  - {fileID: 8823149072992613981, guid: ece9aedb6ee66f149a91f971ef529080, type: 3}
   zipsCount: 0
 --- !u!1 &8227497224695082907
 GameObject:

@@ -12,6 +12,8 @@ public class ZipBehaviors : MonoBehaviour
 
     private int tick = 0;
     [SerializeField] private int shootTime;
+    
+    [SerializeField] private int zipID;
 
     void Update()
     {
@@ -44,7 +46,6 @@ public class ZipBehaviors : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        life--;
         if(other.gameObject.tag.Equals("bullet") && life <= 0)
         {
             DestroyZip();
@@ -52,13 +53,55 @@ public class ZipBehaviors : MonoBehaviour
         }
         else if (other.gameObject.tag.Equals("bullet"))
         {
+            life--;
             Destroy(other.GameObject());
         }
     }
     
     private void Shoot()
     {
-        GameObject newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+        GameObject newBullet;
+        EnnemiBulletController bulletScript;
+        switch (zipID)
+        {
+            case 0:
+                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+
+                if (bulletScript != null)
+                {
+                    bulletScript.GetID(zipID);
+                }
+                break;
+            
+            case 1:
+                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+
+                if (bulletScript != null)
+                {
+                    bulletScript.GetID(zipID);
+                }
+                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+
+                if (bulletScript != null)
+                {
+                    bulletScript.GetID(0);
+                }
+                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+
+                if (bulletScript != null)
+                {
+                    bulletScript.GetID(3);
+                }
+                break;
+            
+            case 2:
+                transform.position += new Vector3(0, -speed, 0) * Time.deltaTime;
+                break;
+        }
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
