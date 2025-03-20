@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3145608680436358952}
   - component: {fileID: 8165267706902636418}
   m_Layer: 0
-  m_Name: Ennemi 1
+  m_Name: Ennemi 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1258985618931317549, guid: 2969ce36ace0209449d47e1315d8a349, type: 3}
+  m_Sprite: {fileID: -8780069865635855600, guid: ea80e23b9c9638d4596c40d5be8a7200, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,11 +103,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  life: 1
+  life: 2
   rb: {fileID: 3145608680436358952}
   bullet: {fileID: 4671108321833451556, guid: dd50675fc20ff884981d172357110633, type: 3}
-  shootTime: 8
-  zipID: 1
+  shootTime: 10
+  zipID: 2
   player: {fileID: 1962282476967523661, guid: a27209a69c7b4b94b8274357c10117ad, type: 3}
 --- !u!50 &3145608680436358952
 Rigidbody2D:
@@ -174,7 +174,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.64, y: 3.64}
+    oldSize: {x: 2.64, y: 3.74}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

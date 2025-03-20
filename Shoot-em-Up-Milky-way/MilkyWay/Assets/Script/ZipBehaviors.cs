@@ -62,6 +62,7 @@ public class ZipBehaviors : MonoBehaviour
     {
         GameObject newBullet;
         EnnemiBulletController bulletScript;
+
         switch (zipID)
         {
             case 0:
@@ -70,39 +71,46 @@ public class ZipBehaviors : MonoBehaviour
 
                 if (bulletScript != null)
                 {
-                    bulletScript.GetID(zipID);
+                    bulletScript.Init(zipID, Vector3.zero); // pas besoin de target ici
                 }
                 break;
-            
+
             case 1:
+                // Multi-shoot : centre, droite, gauche
                 newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
                 bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+                if (bulletScript != null) bulletScript.Init(zipID, Vector3.zero);
 
-                if (bulletScript != null)
-                {
-                    bulletScript.GetID(zipID);
-                }
                 newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
                 bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+                if (bulletScript != null) bulletScript.Init(0, Vector3.zero);
 
-                if (bulletScript != null)
-                {
-                    bulletScript.GetID(0);
-                }
                 newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
                 bulletScript = newBullet.GetComponent<EnnemiBulletController>();
-
-                if (bulletScript != null)
-                {
-                    bulletScript.GetID(3);
-                }
+                if (bulletScript != null) bulletScript.Init(3, Vector3.zero);
                 break;
-            
+
             case 2:
-                transform.position += new Vector3(0, -speed, 0) * Time.deltaTime;
+                newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
+                bulletScript = newBullet.GetComponent<EnnemiBulletController>();
+
+                if (bulletScript != null)
+                {
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    if (player != null)
+                    {
+                        bulletScript.Init(2, player.transform.position);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Player not found for targeted bullet.");
+                    }
+                }
                 break;
         }
     }
+
+
 
     // ReSharper disable Unity.PerformanceAnalysis
     private void DestroyZip()

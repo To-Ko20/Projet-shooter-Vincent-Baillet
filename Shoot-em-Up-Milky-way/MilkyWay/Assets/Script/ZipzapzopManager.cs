@@ -19,7 +19,7 @@ public class ZipzapzopManager : MonoBehaviour
     {
         for(int i = 0; i < nb; i++)
         {
-            Instantiate(zipType[Random.Range(0,2)], new Vector2(Random.Range(-8, 8), 4.5f), Quaternion.identity);
+            Instantiate(zipType[Random.Range(0,3)], new Vector2(Random.Range(-8, 8), 4.5f), Quaternion.identity);
             zipsCount++;
         }
     }

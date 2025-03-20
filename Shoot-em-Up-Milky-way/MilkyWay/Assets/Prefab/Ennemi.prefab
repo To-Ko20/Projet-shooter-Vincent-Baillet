@@ -108,6 +108,7 @@ MonoBehaviour:
   bullet: {fileID: 4671108321833451556, guid: dd50675fc20ff884981d172357110633, type: 3}
   shootTime: 12
   zipID: 0
+  player: {fileID: 1962282476967523661, guid: a27209a69c7b4b94b8274357c10117ad, type: 3}
 --- !u!50 &3145608680436358952
 Rigidbody2D:
   serializedVersion: 5
