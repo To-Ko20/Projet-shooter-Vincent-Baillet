@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kakabur_vert_0: 7727722586471641159
+      kakabur_vert_1: -8109532558003243004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
