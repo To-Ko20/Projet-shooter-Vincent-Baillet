@@ -7,13 +7,30 @@ public class ZipBehaviors : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int life;
 
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject bullet;
+
+    private int tick = 0;
+    [SerializeField] private int shootTime;
+
     void Update()
     {
+        Timer();
         Move();
 
         if (transform.position.y <= -5.5)
         {
             DestroyZip();
+        }
+    }
+
+    void Timer()
+    {
+        tick++;
+        if (tick >= shootTime * 60)
+        {
+            tick = 0;
+            Shoot();
         }
     }
 
@@ -37,6 +54,11 @@ public class ZipBehaviors : MonoBehaviour
         {
             Destroy(other.GameObject());
         }
+    }
+    
+    private void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, rb.transform.position, Quaternion.identity);
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
